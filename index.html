@@ -1,1 +1,100 @@
-html
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Session Storage</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <style>
+    .copyright { border-top: 1px rgba(200,200,200,0.8) solid; height: 40px; padding-top: 5px;bottom:0; text-align: center; width: 100%; left:0;}
+    .copyright a{ display: block; color: gray; font-size: 12px; }
+    </style>
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+      <div class="container">
+
+        <br>
+        <div ng-controller="searchCtrl" class="container">
+          <h1 class="text-center">Local Session Storage (AngularJs and Native Javascript)</h1>
+          <hr>
+          <div class="col-sm-6">
+
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Type your search (Local Storage )</h3>
+              </div>
+              <div class="panel-body">
+                <p>
+                  Type your search and close your browser and open again see effect
+                </p>
+                <form>
+                  <input type="text" placeholder="Enter your search" ng-model="search" class="form-control">
+                  <br>
+                  <button type="submit" ng-click="searchResult()" class="btn btn-primary center-block">  Search  </button>
+                </form>
+                <div class="clearfix">   </div>
+                <hr>
+                <strong>Method</strong> <br>
+                <code>
+                LocalSessionStorage.add(); <br>
+                LocalSessionStorage.clear(); <br>
+                LocalSessionStorage.getData(); <br>
+                LocalSessionStorage.getdataByObject() </code>
+                <div class="clearfix"></div>
+                <br>
+                <a class="btn btn-success center-block " href="sessionStorage.zip">Download Souce Code</a>
+              </div>
+
+            </div>
+
+        </div>
+        <div class="col-sm-6">
+
+          <div class="panel panel-default" >
+            <div class="panel-heading">
+              <h3 class="panel-title"> Your recent search</h3>
+            </div>
+            <div class="panel-body">
+                  <section ng-show="viewdata">
+                    <ul>
+                      <li ng-repeat="x in viewdata">
+                          <p>
+                            ({{$index+1}}).  {{x.search}}
+                          </p>
+                      </li>
+                    </ul>
+
+                    <br>
+                    <button ng-click="remove()" class="btn btn-primary btn-block">Clear your storage</button>
+                  </section>
+                  <section ng-hide="viewdata">
+                    <p>
+                      No recent search
+                    </p>
+                  </section>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="clearfix">
+          
+        </div>
+<div class="copyright">
+    <a href="mailto:mahendra@acetz.com">Mahendra@acetz.com</a>
+    <a href="http://www.acetz.com" target="_blank">Powered By: Acetz Technology </a>
+</div>
+    </div>
+    </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js"></script>
+      <script src="app/sessionStorage.js"></script>
+    <script src="app/app.js"></script>
+  </body>
+</html>
